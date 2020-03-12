@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="1stminus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="kinbo1" type="text" class="form-control text-center" value="1">
+                           <button id="1stplus" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="iphoneprice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="2ndminus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="kinbo2" type="text" class="form-control text-center" value="1">
+                           <button id="2ndplus" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="coverprice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$<span id="Subtotal">1,278</span></h5>
+                        <h5>$<span id="tax">0</span></h5>
+                        <h5>$<span id="totalprice">1,278</span></h5>
                      </div>
                   </div>
                </div>
@@ -77,6 +77,185 @@
          </div>
       </div>
    </section>
+   <script>
+      var iphoneprice = 1219;
+      var coverprice = 59;
+
+
+      const coverclick = document.getElementById("2ndplus");
+      coverclick.addEventListener("click",function(){
+         var kinbo = document.getElementById("kinbo2").value;
+         var kinbonumber = parseFloat(kinbo);
+         kinbo = kinbonumber + 1;
+         document.getElementById("kinbo2").value = kinbo;
+         coverprice += 59;
+         document.getElementById("coverprice").innerText =coverprice;
+         document.getElementById("Subtotal").innerText = iphoneprice + coverprice;
+         document.getElementById("totalprice").innerText = iphoneprice + coverprice;
+         
+
+      })
+
+
+
+
+
+      const iphoneclick = document.getElementById("1stplus");
+      iphoneclick.addEventListener("click",function(){
+         var kinbo = document.getElementById("kinbo1").value;
+         var kinbonumber = parseFloat(kinbo);
+         kinbo = kinbonumber + 1;
+         document.getElementById("kinbo1").value = kinbo;
+         iphoneprice += 1219;
+         document.getElementById("iphoneprice").innerText =iphoneprice;
+         document.getElementById("Subtotal").innerText = iphoneprice + coverprice;
+         document.getElementById("totalprice").innerText = iphoneprice + coverprice;
+
+      })
+
+      const iphoneclickmi = document.getElementById("1stminus");
+      iphoneclickmi.addEventListener("click",function(){
+         var kinbo = document.getElementById("kinbo1").value;
+         var kinbonumber = parseFloat(kinbo);
+         kinbo = kinbonumber - 1;
+         document.getElementById("kinbo1").value = kinbo;
+         iphoneprice -= 1219;
+         document.getElementById("iphoneprice").innerText =iphoneprice;
+         document.getElementById("Subtotal").innerText = iphoneprice - coverprice;
+         document.getElementById("totalprice").innerText = iphoneprice - coverprice;
+
+      })
+      
+
+      const coverclickmi = document.getElementById("2ndminus");
+      coverclickmi.addEventListener("click",function(){
+         var kinbo = document.getElementById("kinbo2").value;
+         var kinbonumber = parseFloat(kinbo);
+         kinbo = kinbonumber - 1;
+         document.getElementById("kinbo2").value = kinbo;
+         coverprice -= 59;
+         document.getElementById("coverprice").innerText =coverprice;
+         document.getElementById("Subtotal").innerText = iphoneprice - coverprice;
+         document.getElementById("totalprice").innerText = iphoneprice - coverprice;
+         
+
+      })
+
+
+   </script>
+
+   <!-- <script>
+      //var declear section;
+      var iphoneinput = 0;
+      var coverinput = 0;
+      var coverpricenumber,iphonepricenumber;
+
+
+
+      //its for 1st plus button
+      const kajkore = document.getElementById("1stplus");
+      kajkore.addEventListener("click", function(){
+         var kinbo = document.getElementById("kinbo1").value;
+         var kinbonumber = parseFloat(kinbo);
+         kinbo = kinbonumber + 1;
+         document.getElementById("kinbo1").value = kinbo;
+         var iphoneinput = document.getElementById("iphoneprice").innerText;
+         var iphonepricenumber = parseFloat(iphoneinput);
+         iphoneinput = iphonepricenumber + 1219;
+         document.getElementById("iphoneprice").innerText = iphoneinput;
+
+      //    var totalprice = document.getElementById("totaliphoneprice").innerText;
+      //  var totalpricenumber = parseFloat(totalprice);
+      //  totalprice = iphonepricenumber;
+      //  document.getElementById("totaliphoneprice").innerText = totalprice;
+      });
+
+
+      //its for 2nd plus button;
+      const kajkore2 = document.getElementById("2ndplus");
+      kajkore2.addEventListener("click", function(){
+         var kinbo2 = document.getElementById("kinbo2").value;
+         var kinbonumber2 = parseFloat(kinbo2);
+         kinbo2 = kinbonumber2 + 1;
+         document.getElementById("kinbo2").value = kinbo2;
+         var coverinput = document.getElementById("coverprice").innerText;
+         var coverpricenumber = parseFloat(coverinput);
+         coverinput = coverpricenumber + 59;
+         document.getElementById("coverprice").innerText = coverinput;
+
+      //    var totalprice = document.getElementById("totaliphoneprice").innerText;
+      //  var totalpricenumber = parseFloat(totalprice);
+      //  totalprice = coverpricenumber;
+      //  document.getElementById("totaliphoneprice").innerText = totalprice;
+      });
+
+      //its for sub total
+       var totalprice = document.getElementById("totaliphoneprice").innerText;
+       var totalpricenumber = parseFloat(totalprice);
+       totalprice = coverpricenumber + iphonepricenumber;
+       document.getElementById("totaliphoneprice").innerText = totalprice;
+
+
+
+
+
+
+      // var iphone = 0;
+      // var iphonecover = 0;
+      // var kinbo =0;
+
+
+      // clickdone("1stminus");
+      // clickdone("1stplus");
+      // clickdone("2ndminus");
+      // clickdone("2ndplus");
+      // getinput("kinbo1");
+
+      // // moddeache("totaliphoneprice");
+      // // moddeache("totalprice");
+
+      // //total hisab;
+     
+
+      // // const kinbo = document.getElementById("kinbo").value;
+      // // const kinbonumber = parseFloat(kinbo);
+      // // console.log(kinbonumber);
+
+      // //function for cart number
+      // function getinput(id){
+      //     kinbo = document.getElementById(id).value;
+      // };
+      // //function for cart number
+
+
+
+
+
+
+
+      // // function for get input from button
+      // function clickdone(id){
+      //    const kajkore = document.getElementById(id);
+      // kajkore.addEventListener("click", function(){
+      //    kinbo = kinbo + 1;
+      //    document.getElementById(id).value = kinbo;
+
+      //    console.log("muri khi");
+         
+      //    });
+      // };
+      // // function for get input from button
+
+
+
+
+
+      // // const kajkore = document.getElementById("1stplus");
+      // // kajkore.addEventListener("click", function(){
+      // //    console.log("kaj-kore");
+      // // })
+
+   </script> -->
 </body>
 
 </html>
