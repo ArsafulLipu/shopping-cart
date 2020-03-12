@@ -81,6 +81,18 @@
       var iphoneprice = 1219;
       var coverprice = 59;
 
+      const iphoneclick = document.getElementById("1stplus");
+      iphoneclick.addEventListener("click",function(){
+         var kinbo = document.getElementById("kinbo1").value;
+         var kinbonumber = parseFloat(kinbo);
+         kinbo = kinbonumber + 1;
+         document.getElementById("kinbo1").value = kinbo;
+         iphoneprice += 1219;
+         document.getElementById("iphoneprice").innerText =iphoneprice;
+         document.getElementById("Subtotal").innerText = iphoneprice + coverprice;
+         document.getElementById("totalprice").innerText = iphoneprice + coverprice;
+
+      })
 
       const coverclick = document.getElementById("2ndplus");
       coverclick.addEventListener("click",function(){
@@ -96,34 +108,18 @@
 
       })
 
-
-
-
-
-      const iphoneclick = document.getElementById("1stplus");
-      iphoneclick.addEventListener("click",function(){
-         var kinbo = document.getElementById("kinbo1").value;
-         var kinbonumber = parseFloat(kinbo);
-         kinbo = kinbonumber + 1;
-         document.getElementById("kinbo1").value = kinbo;
-         iphoneprice += 1219;
-         document.getElementById("iphoneprice").innerText =iphoneprice;
-         document.getElementById("Subtotal").innerText = iphoneprice + coverprice;
-         document.getElementById("totalprice").innerText = iphoneprice + coverprice;
-
-      })
-
       const iphoneclickmi = document.getElementById("1stminus");
       iphoneclickmi.addEventListener("click",function(){
          var kinbo = document.getElementById("kinbo1").value;
          var kinbonumber = parseFloat(kinbo);
-         kinbo = kinbonumber - 1;
+         if (kinbo > 0) {
+            kinbo = kinbonumber - 1;
          document.getElementById("kinbo1").value = kinbo;
          iphoneprice -= 1219;
          document.getElementById("iphoneprice").innerText =iphoneprice;
-         document.getElementById("Subtotal").innerText = iphoneprice - coverprice;
-         document.getElementById("totalprice").innerText = iphoneprice - coverprice;
-
+         document.getElementById("Subtotal").innerText = iphoneprice + coverprice;
+         document.getElementById("totalprice").innerText = iphoneprice + coverprice;
+         }
       })
       
 
@@ -131,14 +127,14 @@
       coverclickmi.addEventListener("click",function(){
          var kinbo = document.getElementById("kinbo2").value;
          var kinbonumber = parseFloat(kinbo);
-         kinbo = kinbonumber - 1;
+         if (kinbo >0) {
+            kinbo = kinbonumber - 1;
          document.getElementById("kinbo2").value = kinbo;
          coverprice -= 59;
          document.getElementById("coverprice").innerText =coverprice;
-         document.getElementById("Subtotal").innerText = iphoneprice - coverprice;
-         document.getElementById("totalprice").innerText = iphoneprice - coverprice;
-         
-
+         document.getElementById("Subtotal").innerText = iphoneprice + coverprice;
+         document.getElementById("totalprice").innerText = iphoneprice + coverprice;
+         }
       })
 
 
